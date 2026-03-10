@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 33% 96%;
+    --foreground: 16 50% 13%;
+
+    --card: 30 30% 94%;
+    --card-foreground: 16 50% 13%;
+
+    --popover: 30 33% 96%;
+    --popover-foreground: 16 50% 13%;
+
+    --primary: 25 30% 26%;
+    --primary-foreground: 35 40% 95%;
+
+    --secondary: 30 25% 88%;
+    --secondary-foreground: 16 50% 13%;
+
+    --muted: 30 20% 90%;
+    --muted-foreground: 20 10% 45%;
+
+    --accent: 35 45% 65%;
+    --accent-foreground: 16 50% 13%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 35 45% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --coffee-dark: 16 50% 13%;
+    --coffee-brown: 25 30% 26%;
+    --coffee-medium: 20 25% 40%;
+    --coffee-light: 16 22% 73%;
+    --cream: 30 50% 95%;
+    --sand: 35 35% 88%;
+    --gold: 35 55% 60%;
+    --gold-light: 40 50% 78%;
+    --warm-white: 35 40% 98%;
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Outfit', sans-serif;
+    --font-accent: 'Cormorant Garamond', serif;
+
+    --shadow-warm: 0 4px 20px -4px hsl(25 40% 20% / 0.15);
+    --shadow-gold: 0 4px 30px -6px hsl(35 55% 60% / 0.3);
+    --shadow-elevated: 0 12px 40px -12px hsl(25 40% 20% / 0.2);
+
+    --sidebar-background: 16 50% 13%;
+    --sidebar-foreground: 35 40% 95%;
+    --sidebar-primary: 35 55% 60%;
+    --sidebar-primary-foreground: 16 50% 13%;
+    --sidebar-accent: 25 30% 20%;
+    --sidebar-accent-foreground: 35 40% 95%;
+    --sidebar-border: 25 20% 20%;
+    --sidebar-ring: 35 55% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .font-accent {
+    font-family: var(--font-accent);
+  }
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+}
+
+/* Arabian geometric pattern overlay */
+.pattern-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C8A97E' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Arabesque divider */
+.arabesque-divider {
+  background: linear-gradient(90deg, transparent, hsl(var(--gold)) 20%, hsl(var(--gold)), hsl(var(--gold)) 80%, transparent);
+  height: 1px;
+  position: relative;
+}
+.arabesque-divider::after {
+  content: '◆';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: hsl(var(--gold));
+  font-size: 0.75rem;
+  background: hsl(var(--background));
+  padding: 0 0.75rem;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--sand));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--coffee-light));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--coffee-medium));
+}
